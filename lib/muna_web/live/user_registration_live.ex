@@ -6,7 +6,7 @@ defmodule MunaWeb.UserRegistrationLive do
 
   def render(assigns) do
     ~H"""
-    <div class="mx-auto max-w-sm">
+    <div class="mx-auto">
       <.header class="text-center">
         Register for an account
         <:subtitle>
@@ -33,13 +33,13 @@ defmodule MunaWeb.UserRegistrationLive do
           Oops, something went wrong! Please check the errors below.
         </.error>
 
-        <div class="flex flex-row">
+        <div class="flex flex-row space-x-4">
           <.input placeholder="Enter email address ..." field={{f, :email}} type="email" required />
           <.input placeholder="Enter password" field={{f, :password}} type="password" required />
         </div>
 
         <:actions>
-          <.button phx-disable-with="Creating account..." class="w-full">Create an account</.button>
+          <.button phx-disable-with="Creating account..." class="w-full">Sign up</.button>
         </:actions>
       </.simple_form>
     </div>

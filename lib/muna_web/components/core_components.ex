@@ -350,7 +350,7 @@ defmodule MunaWeb.CoreComponents do
         value={@value}
         class={[
           input_border(@errors),
-          "",
+          "bg-gray-100",
           "",
           ""
         ]}
@@ -362,10 +362,10 @@ defmodule MunaWeb.CoreComponents do
   end
 
   defp input_border([] = _errors),
-    do: "border-zinc-300 focus:border-zinc-400 focus:ring-zinc-800/5"
+    do: "border-none"
 
   defp input_border([_ | _] = _errors),
-    do: "border-rose-400 focus:border-rose-400 focus:ring-rose-400/10"
+    do: "border-none"
 
   @doc """
   Renders a label.
