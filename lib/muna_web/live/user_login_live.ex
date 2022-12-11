@@ -3,18 +3,8 @@ defmodule MunaWeb.UserLoginLive do
 
   def render(assigns) do
     ~H"""
-    <div class="mx-auto max-w-sm">
-      <.header class="text-center">
-        Sign in to account
-        <:subtitle>
-          Don't have an account?
-          <.link navigate={~p"/users/register"} class="font-semibold text-brand hover:underline">
-            Sign up
-          </.link>
-          for an account now.
-        </:subtitle>
-      </.header>
-
+    <div class="mx-auto">
+      <p class="mb-4">Welcome back</p>
       <.simple_form
         :let={f}
         id="login_form"
@@ -23,8 +13,22 @@ defmodule MunaWeb.UserLoginLive do
         as={:user}
         phx-update="ignore"
       >
-        <.input field={{f, :email}} type="email" label="Email" required />
-        <.input field={{f, :password}} type="password" label="Password" required />
+        <div class="flex flex-col sm:flex-row sm:space-x-4 space-y-2 sm:space-y-0">
+          <.input
+            placeholder="Enter email address ..."
+            field={{f, :email}}
+            type="email"
+            label="Email"
+            required
+          />
+          <.input
+            placeholder="Enter password"
+            field={{f, :password}}
+            type="password"
+            label="Password"
+            required
+          />
+        </div>
 
         <:actions :let={f}>
           <.input field={{f, :remember_me}} type="checkbox" label="Keep me logged in" />
@@ -38,6 +42,9 @@ defmodule MunaWeb.UserLoginLive do
           </.button>
         </:actions>
       </.simple_form>
+      <div class="flex flex-col items-center mt-3">
+        <.link class="text-sm" href={~p"/users/register"}>Don't have an account? Sign up</.link>
+      </div>
     </div>
     """
   end
