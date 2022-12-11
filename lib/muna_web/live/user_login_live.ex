@@ -4,7 +4,7 @@ defmodule MunaWeb.UserLoginLive do
   def render(assigns) do
     ~H"""
     <div class="mx-auto">
-      <p class="mb-4">Welcome back</p>
+      <p id="_test_login_intro" class="mb-4">Welcome back</p>
       <.simple_form
         :let={f}
         id="login_form"
@@ -43,7 +43,7 @@ defmodule MunaWeb.UserLoginLive do
         </:actions>
       </.simple_form>
       <div class="flex flex-col items-center mt-3">
-        <.link class="text-sm" href={~p"/users/register"}>Don't have an account? Sign up</.link>
+        <.link id="_test_signup" class="text-sm" href={~p"/users/register"}>Don't have an account? Sign up</.link>
       </div>
     </div>
     """
