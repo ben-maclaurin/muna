@@ -30,7 +30,7 @@ defmodule MunaWeb.UserRegistrationLiveTest do
         |> element("#registration_form")
         |> render_change(user: %{"email" => "with spaces", "password" => "too short"})
 
-      assert result =~ "Register"
+      assert has_element?(lv, "#_test_register_intro")
       assert result =~ "must have the @ sign and no spaces"
       assert result =~ "should be at least 12 character"
     end
@@ -65,20 +65,6 @@ defmodule MunaWeb.UserRegistrationLiveTest do
         user: %{"email" => user.email, "password" => "valid_password"}
       )
       |> render_submit() =~ "has already been taken"
-    end
-  end
-
-  describe "registration navigation" do
-    test "redirects to login page when the Log in button is clicked", %{conn: conn} do
-      {:ok, lv, _html} = live(conn, ~p"/users/register")
-
-      {:ok, _login_live, login_html} =
-        lv
-        |> element(~s|main a:fl-contains("Sign in")|)
-        |> render_click()
-        |> follow_redirect(conn, ~p"/users/log_in")
-
-      assert login_html =~ "Log in"
     end
   end
 end
