@@ -7,6 +7,7 @@ defmodule MunaWeb.UserRegistrationLive do
   def render(assigns) do
     ~H"""
     <div class="mx-auto">
+      <p>Welcome to Muna</p>
       <.simple_form
         :let={f}
         id="registration_form"
