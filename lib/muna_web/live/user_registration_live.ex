@@ -33,8 +33,10 @@ defmodule MunaWeb.UserRegistrationLive do
           Oops, something went wrong! Please check the errors below.
         </.error>
 
-        <.input field={{f, :email}} type="email" label="Email" required />
-        <.input field={{f, :password}} type="password" label="Password" required />
+        <div class="flex flex-row">
+          <.input placeholder="Enter email address ..." field={{f, :email}} type="email" required />
+          <.input placeholder="Enter password" field={{f, :password}} type="password" required />
+        </div>
 
         <:actions>
           <.button phx-disable-with="Creating account..." class="w-full">Create an account</.button>
