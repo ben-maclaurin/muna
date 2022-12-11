@@ -24,14 +24,29 @@ defmodule MunaWeb.UserRegistrationLive do
         </.error>
 
         <div class="flex flex-col sm:flex-row sm:space-x-4 space-y-2 sm:space-y-0">
-          <.input label="Email" placeholder="Enter email address ..." field={{f, :email}} type="email" required />
-          <.input label="Password" placeholder="Enter password" field={{f, :password}} type="password" required />
+          <.input
+            label="Email"
+            placeholder="Enter email address ..."
+            field={{f, :email}}
+            type="email"
+            required
+          />
+          <.input
+            label="Password"
+            placeholder="Enter password"
+            field={{f, :password}}
+            type="password"
+            required
+          />
         </div>
 
         <:actions>
           <.button phx-disable-with="Creating account..." class="w-full">Sign up</.button>
         </:actions>
       </.simple_form>
+      <div class="flex flex-col items-center mt-3">
+        <.link class="text-sm" href={~p"/users/log_in"}>Already have an account? Log in</.link>
+      </div>
     </div>
     """
   end
