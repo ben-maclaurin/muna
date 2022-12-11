@@ -350,9 +350,7 @@ defmodule MunaWeb.CoreComponents do
         value={@value}
         class={[
           input_border(@errors),
-          "bg-gray-100",
-          "",
-          ""
+          "bg-neutral-100 rounded-md",
         ]}
         {@rest}
       />
