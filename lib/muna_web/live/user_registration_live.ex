@@ -24,8 +24,8 @@ defmodule MunaWeb.UserRegistrationLive do
         </.error>
 
         <div class="flex flex-col sm:flex-row sm:space-x-4 space-y-2 sm:space-y-0">
-          <.input placeholder="Enter email address ..." field={{f, :email}} type="email" required />
-          <.input placeholder="Enter password" field={{f, :password}} type="password" required />
+          <.input label="Email" placeholder="Enter email address ..." field={{f, :email}} type="email" required />
+          <.input label="Password" placeholder="Enter password" field={{f, :password}} type="password" required />
         </div>
 
         <:actions>
