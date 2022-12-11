@@ -20,7 +20,7 @@ defmodule MunaWeb.Router do
   scope "/", MunaWeb do
     pipe_through(:browser)
 
-    get("/", PageController, :home)
+    live("/", DeckLive.Index, :index)
   end
 
   # Other scopes may use custom stacks.
