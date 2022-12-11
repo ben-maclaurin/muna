@@ -34,16 +34,16 @@ defmodule MunaWeb.CoreComponents do
         <:cancel>Cancel</:cancel>
       </.modal>
   """
-  attr :id, :string, required: true
-  attr :show, :boolean, default: false
-  attr :on_cancel, JS, default: %JS{}
-  attr :on_confirm, JS, default: %JS{}
+  attr(:id, :string, required: true)
+  attr(:show, :boolean, default: false)
+  attr(:on_cancel, JS, default: %JS{})
+  attr(:on_confirm, JS, default: %JS{})
 
-  slot :inner_block, required: true
-  slot :title
-  slot :subtitle
-  slot :confirm
-  slot :cancel
+  slot(:inner_block, required: true)
+  slot(:title)
+  slot(:subtitle)
+  slot(:confirm)
+  slot(:cancel)
 
   def modal(assigns) do
     ~H"""
@@ -122,15 +122,15 @@ defmodule MunaWeb.CoreComponents do
       <.flash kind={:info} flash={@flash} />
       <.flash kind={:info} phx-mounted={show("#flash")}>Welcome Back!</.flash>
   """
-  attr :id, :string, default: "flash", doc: "the optional id of flash container"
-  attr :flash, :map, default: %{}, doc: "the map of flash messages to display"
-  attr :title, :string, default: nil
-  attr :kind, :atom, values: [:info, :error], doc: "used for styling and flash lookup"
-  attr :autoshow, :boolean, default: true, doc: "whether to auto show the flash on mount"
-  attr :close, :boolean, default: true, doc: "whether the flash can be closed"
-  attr :rest, :global, doc: "the arbitrary HTML attributes to add to the flash container"
+  attr(:id, :string, default: "flash", doc: "the optional id of flash container")
+  attr(:flash, :map, default: %{}, doc: "the map of flash messages to display")
+  attr(:title, :string, default: nil)
+  attr(:kind, :atom, values: [:info, :error], doc: "used for styling and flash lookup")
+  attr(:autoshow, :boolean, default: true, doc: "whether to auto show the flash on mount")
+  attr(:close, :boolean, default: true, doc: "whether the flash can be closed")
+  attr(:rest, :global, doc: "the arbitrary HTML attributes to add to the flash container")
 
-  slot :inner_block, doc: "the optional inner block that renders the flash message"
+  slot(:inner_block, doc: "the optional inner block that renders the flash message")
 
   def flash(assigns) do
     ~H"""
@@ -178,15 +178,16 @@ defmodule MunaWeb.CoreComponents do
         </:actions>
       </.simple_form>
   """
-  attr :for, :any, default: nil, doc: "the datastructure for the form"
-  attr :as, :any, default: nil, doc: "the server side parameter to collect all input under"
+  attr(:for, :any, default: nil, doc: "the datastructure for the form")
+  attr(:as, :any, default: nil, doc: "the server side parameter to collect all input under")
 
-  attr :rest, :global,
+  attr(:rest, :global,
     include: ~w(autocomplete name rel action enctype method novalidate target),
     doc: "the arbitrary HTML attributes to apply to the form tag"
+  )
 
-  slot :inner_block, required: true
-  slot :actions, doc: "the slot for form actions, such as a submit button"
+  slot(:inner_block, required: true)
+  slot(:actions, doc: "the slot for form actions, such as a submit button")
 
   def simple_form(assigns) do
     ~H"""
@@ -209,11 +210,11 @@ defmodule MunaWeb.CoreComponents do
       <.button>Send!</.button>
       <.button phx-click="go" class="ml-2">Send!</.button>
   """
-  attr :type, :string, default: nil
-  attr :class, :string, default: nil
-  attr :rest, :global, include: ~w(disabled form name value)
+  attr(:type, :string, default: nil)
+  attr(:class, :string, default: nil)
+  attr(:rest, :global, include: ~w(disabled form name value))
 
-  slot :inner_block, required: true
+  slot(:inner_block, required: true)
 
   def button(assigns) do
     ~H"""
@@ -243,25 +244,26 @@ defmodule MunaWeb.CoreComponents do
       <.input field={{f, :email}} type="email" />
       <.input name="my-input" errors={["oh no!"]} />
   """
-  attr :id, :any
-  attr :name, :any
-  attr :label, :string, default: nil
+  attr(:id, :any)
+  attr(:name, :any)
+  attr(:label, :string, default: nil)
 
-  attr :type, :string,
+  attr(:type, :string,
     default: "text",
     values: ~w(checkbox color date datetime-local email file hidden month number password
                range radio search select tel text textarea time url week)
+  )
 
-  attr :value, :any
-  attr :field, :any, doc: "a %Phoenix.HTML.Form{}/field name tuple, for example: {f, :email}"
-  attr :errors, :list
-  attr :checked, :boolean, doc: "the checked flag for checkbox inputs"
-  attr :prompt, :string, default: nil, doc: "the prompt for select inputs"
-  attr :options, :list, doc: "the options to pass to Phoenix.HTML.Form.options_for_select/2"
-  attr :multiple, :boolean, default: false, doc: "the multiple flag for select inputs"
-  attr :rest, :global, include: ~w(autocomplete disabled form max maxlength min minlength
-                                   pattern placeholder readonly required size step)
-  slot :inner_block
+  attr(:value, :any)
+  attr(:field, :any, doc: "a %Phoenix.HTML.Form{}/field name tuple, for example: {f, :email}")
+  attr(:errors, :list)
+  attr(:checked, :boolean, doc: "the checked flag for checkbox inputs")
+  attr(:prompt, :string, default: nil, doc: "the prompt for select inputs")
+  attr(:options, :list, doc: "the options to pass to Phoenix.HTML.Form.options_for_select/2")
+  attr(:multiple, :boolean, default: false, doc: "the multiple flag for select inputs")
+  attr(:rest, :global, include: ~w(autocomplete disabled form max maxlength min minlength
+                                   pattern placeholder readonly required size step))
+  slot(:inner_block)
 
   def input(%{field: {f, field}} = assigns) do
     assigns
@@ -348,9 +350,9 @@ defmodule MunaWeb.CoreComponents do
         value={@value}
         class={[
           input_border(@errors),
-          "mt-2 block w-full rounded-lg border-zinc-300 py-[7px] px-[11px]",
-          "text-zinc-900 focus:outline-none focus:ring-4 sm:text-sm sm:leading-6",
-          "phx-no-feedback:border-zinc-300 phx-no-feedback:focus:border-zinc-400 phx-no-feedback:focus:ring-zinc-800/5"
+          "",
+          "",
+          ""
         ]}
         {@rest}
       />
@@ -368,8 +370,8 @@ defmodule MunaWeb.CoreComponents do
   @doc """
   Renders a label.
   """
-  attr :for, :string, default: nil
-  slot :inner_block, required: true
+  attr(:for, :string, default: nil)
+  slot(:inner_block, required: true)
 
   def label(assigns) do
     ~H"""
@@ -382,7 +384,7 @@ defmodule MunaWeb.CoreComponents do
   @doc """
   Generates a generic error message.
   """
-  slot :inner_block, required: true
+  slot(:inner_block, required: true)
 
   def error(assigns) do
     ~H"""
@@ -396,11 +398,11 @@ defmodule MunaWeb.CoreComponents do
   @doc """
   Renders a header with title.
   """
-  attr :class, :string, default: nil
+  attr(:class, :string, default: nil)
 
-  slot :inner_block, required: true
-  slot :subtitle
-  slot :actions
+  slot(:inner_block, required: true)
+  slot(:subtitle)
+  slot(:actions)
 
   def header(assigns) do
     ~H"""
@@ -428,15 +430,15 @@ defmodule MunaWeb.CoreComponents do
         <:col :let={user} label="username"><%= user.username %></:col>
       </.table>
   """
-  attr :id, :string, required: true
-  attr :row_click, :any, default: nil
-  attr :rows, :list, required: true
+  attr(:id, :string, required: true)
+  attr(:row_click, :any, default: nil)
+  attr(:rows, :list, required: true)
 
   slot :col, required: true do
-    attr :label, :string
+    attr(:label, :string)
   end
 
-  slot :action, doc: "the slot for showing user actions in the last table column"
+  slot(:action, doc: "the slot for showing user actions in the last table column")
 
   def table(assigns) do
     ~H"""
@@ -497,7 +499,7 @@ defmodule MunaWeb.CoreComponents do
       </.list>
   """
   slot :item, required: true do
-    attr :title, :string, required: true
+    attr(:title, :string, required: true)
   end
 
   def list(assigns) do
@@ -520,8 +522,8 @@ defmodule MunaWeb.CoreComponents do
 
       <.back navigate={~p"/posts"}>Back to posts</.back>
   """
-  attr :navigate, :any, required: true
-  slot :inner_block, required: true
+  attr(:navigate, :any, required: true)
+  slot(:inner_block, required: true)
 
   def back(assigns) do
     ~H"""
