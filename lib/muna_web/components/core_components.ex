@@ -221,7 +221,7 @@ defmodule MunaWeb.CoreComponents do
     <button
       type={@type}
       class={[
-        "bg-neutral-200 py-2 rounded-md",
+        "bg-neutral-200 py-2 rounded-sm",
         "",
         @class
       ]}
@@ -350,7 +350,7 @@ defmodule MunaWeb.CoreComponents do
         value={@value}
         class={[
           input_border(@errors),
-          "bg-neutral-100 w-full rounded-md",
+          "bg-neutral-100 w-full rounded-sm",
         ]}
         {@rest}
       />
