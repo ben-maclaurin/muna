@@ -17,4 +17,18 @@ defmodule Muna.StudyFixtures do
 
     deck
   end
+
+  @doc """
+  Generate a card.
+  """
+  def card_fixture(attrs \\ %{}) do
+    {:ok, card} =
+      attrs
+      |> Enum.into(%{
+        title: "some title"
+      })
+      |> Muna.Study.create_card()
+
+    card
+  end
 end
