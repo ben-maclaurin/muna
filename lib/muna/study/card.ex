@@ -1,9 +1,12 @@
 defmodule Muna.Study.Card do
   use Ecto.Schema
+  alias Muna.Study.Deck
   import Ecto.Changeset
 
   schema "cards" do
-    field :title, :string
+    field(:title, :string)
+    field(:deck_id, :integer)
+    belongs_to(:decks, Deck)
 
     timestamps()
   end
