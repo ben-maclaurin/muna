@@ -21,8 +21,11 @@ defmodule MunaWeb.CardLive.FormComponent do
         phx-change="validate"
         phx-submit="save"
       >
-        <.input field={{f, :title}} type="text" label="title" />
-        <.input field={{f, :deck_id}} type="text" value={@deck_id} label="title" />
+      <.input field={{f, :front}} type="text" label="Front" />
+      <.input field={{f, :back}} type="text" label="Back" />
+      <span class="hidden">
+              <.input field={{f, :deck_id}} type="text" value={@deck_id} />
+      </span>
         <:actions>
            <.button phx-disable-with="Saving...">Save Card</.button>
         </:actions>
@@ -69,8 +72,6 @@ defmodule MunaWeb.CardLive.FormComponent do
   end
 
   defp save_card(socket, :new, card_params) do
-    Logger.info("socket is #{inspect(socket)}")
-
     case Study.create_card(card_params) do
       {:ok, _card} ->
         {:noreply,

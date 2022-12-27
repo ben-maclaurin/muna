@@ -4,7 +4,8 @@ defmodule Muna.Study.Card do
   import Ecto.Changeset
 
   schema "cards" do
-    field(:title, :string)
+    field(:front, :string)
+    field(:back, :string)
     belongs_to(:deck, Deck)
 
     timestamps()
@@ -13,7 +14,7 @@ defmodule Muna.Study.Card do
   @doc false
   def changeset(card, attrs) do
     card
-    |> cast(attrs, [:title, :deck_id])
-    |> validate_required([:title, :deck_id])
+    |> cast(attrs, [:front, :back, :deck_id])
+    |> validate_required([:front, :back, :deck_id])
   end
 end

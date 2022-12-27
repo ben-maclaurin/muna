@@ -8,7 +8,7 @@
 </.header>
 
 <.table id="cards" rows={@cards} row_click={&JS.navigate(~p"/decks/deck_id/cards/#{&1}")}>
-  <:col :let={card} label="Title"><%= card.title %></:col>
+  <:col :let={card} label="Title"><%= card.front %></:col>
   <:action :let={card}>
     <div class="sr-only">
       <.link navigate={~p"/decks/deck_id/cards/#{card}"}>Show</.link>
@@ -26,7 +26,7 @@
   :if={@live_action in [:new, :edit]}
   id="card-modal"
   show
-  on_cancel={JS.navigate(~p"/cards")}
+  on_cancel={JS.navigate(~p"/decks/#{@deck_id}")}
 >
   <.live_component
     module={MunaWeb.CardLive.FormComponent}
@@ -35,6 +35,6 @@
     title={@page_title}
     action={@live_action}
     card={@card}
-    navigate={~p"/cards"}
+    navigate={~p"/decks/#{@deck_id}"}
   />
 </.modal>
