@@ -39,6 +39,7 @@ defmodule Muna.Study do
   """
   def get_deck!(id) do
     Repo.get!(Deck, id)
+    |> Repo.preload(:cards)
   end
 
   @doc """

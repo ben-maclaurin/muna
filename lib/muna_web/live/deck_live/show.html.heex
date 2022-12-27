@@ -12,6 +12,10 @@ Deck <%= @deck.id %>
   <:item title="Name"><%= @deck.name %></:item>
 </.list>
 
+<%= for card <- @deck.cards do %>
+  <%= card.title %>
+<% end %>
+
 <.back navigate={~p"/decks"}>Back to decks</.back>
 
 <.modal :if={@live_action == :edit} id="deck-modal" show on_cancel={JS.patch(~p"/decks/#{@deck}")}>
