@@ -35,7 +35,10 @@ defmodule Muna.Study do
       ** (Ecto.NoResultsError)
 
   """
-  def get_deck!(id), do: Repo.get!(Deck, id)
+  def get_deck!(id) do
+    Repo.get!(Deck, id)
+    # |> Repo.preload(:cards)
+  end
 
   @doc """
   Creates a deck.

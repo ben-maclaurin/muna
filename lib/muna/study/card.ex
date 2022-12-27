@@ -5,7 +5,6 @@ defmodule Muna.Study.Card do
 
   schema "cards" do
     field(:title, :string)
-    field(:deck_id, :integer)
     belongs_to(:decks, Deck)
 
     timestamps()

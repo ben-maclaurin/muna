@@ -6,7 +6,9 @@ defmodule MunaWeb.DeckLive.Index do
 
   @impl true
   def mount(_params, _session, socket) do
-    {:ok, assign(socket, :decks, list_decks())}
+    {:ok,
+     socket
+     |> assign(:decks, list_decks())}
   end
 
   @impl true

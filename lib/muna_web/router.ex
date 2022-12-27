@@ -78,12 +78,12 @@ defmodule MunaWeb.Router do
       live("/decks/:id/show/edit", DeckLive.Show, :edit)
 
       # == Cards =================================
-      live("/decks/:id/cards", CardLive.Index, :index)
-      live("/decks/:id/cards/new", CardLive.Index, :new)
-      live("/decks/:id/cards/:id/edit", CardLive.Index, :edit)
+      live("/decks/:deck_id/cards", CardLive.Index, :index)
+      live("/decks/:deck_id/cards/new", CardLive.Index, :new)
+      live("/decks/:deck_id/cards/:id/edit", CardLive.Index, :edit)
 
-      live("/decks/:id/cards/:id", CardLive.Show, :show)
-      live("/decks/:id/cards/:id/show/edit", CardLive.Show, :edit)
+      live("/decks/:deck_id/cards/:id", CardLive.Show, :show)
+      live("/decks/:deck_id/cards/:id/show/edit", CardLive.Show, :edit)
     end
   end
 
