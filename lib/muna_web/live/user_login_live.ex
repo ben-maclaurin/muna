@@ -28,7 +28,7 @@ defmodule MunaWeb.UserLoginLive do
             label="Password"
             required
           />
-        </div>
+          </div>
 
         <:actions :let={f}>
           <.input field={{f, :remember_me}} type="checkbox" label="Keep me logged in" />
