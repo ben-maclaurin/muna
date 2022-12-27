@@ -8,7 +8,8 @@ defmodule MunaWeb.CardLive.FormComponent do
     ~H"""
     <div>
       <.header>
-        <%= @title %>
+      <%= @title %>
+      <%= @deck_id %>
         <:subtitle>Use this form to manage card records in your database.</:subtitle>
       </.header>
 

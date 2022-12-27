@@ -6,7 +6,9 @@ defmodule MunaWeb.CardLive.Index do
 
   @impl true
   def mount(_params, _session, socket) do
-    {:ok, assign(socket, :cards, list_cards())}
+    {:ok,
+     socket
+     |> assign(:cards, list_cards())}
   end
 
   @impl true
@@ -20,9 +22,10 @@ defmodule MunaWeb.CardLive.Index do
     |> assign(:card, Study.get_card!(id))
   end
 
-  defp apply_action(socket, :new, _params) do
+  defp apply_action(socket, :new, %{"deck_id" => deck_id}) do
     socket
     |> assign(:page_title, "New Card")
+    |> assign(:deck_id, deck_id)
     |> assign(:card, %Card{})
   end
 
