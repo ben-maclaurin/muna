@@ -19,7 +19,7 @@ defmodule MunaWeb.DeckLiveTest do
     test "lists all decks", %{conn: conn, deck: deck} do
       {:ok, _index_live, html} = live(conn, ~p"/decks")
 
-      assert html =~ "Listing Decks"
+      assert html =~ "Decks"
       assert html =~ deck.name
     end
 

@@ -30,7 +30,7 @@ defmodule MunaWeb.DeckLive.Index do
 
   defp apply_action(socket, :index, _params) do
     socket
-    |> assign(:page_title, "Listing Decks")
+    |> assign(:page_title, "Decks")
     |> assign(:deck, nil)
   end
 
