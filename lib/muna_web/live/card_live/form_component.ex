@@ -1,6 +1,5 @@
 defmodule MunaWeb.CardLive.FormComponent do
   use MunaWeb, :live_component
-  require Logger
 
   alias Muna.Study
 
