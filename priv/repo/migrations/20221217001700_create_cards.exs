@@ -4,7 +4,7 @@ defmodule Muna.Repo.Migrations.CreateCards do
   def change do
     create table(:cards) do
       add :title, :string
-      add :decks_id, :integer
+      add :deck_id, :integer
 
       timestamps()
     end

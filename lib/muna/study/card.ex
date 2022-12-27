@@ -13,7 +13,7 @@ defmodule Muna.Study.Card do
   @doc false
   def changeset(card, attrs) do
     card
-    |> cast(attrs, [:title])
+    |> cast(attrs, [:title, :deck_id])
     |> validate_required([:title])
   end
 end
