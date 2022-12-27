@@ -1,5 +1,6 @@
 defmodule MunaWeb.CardLive.FormComponent do
   use MunaWeb, :live_component
+  require Logger
 
   alias Muna.Study
 
@@ -9,7 +10,6 @@ defmodule MunaWeb.CardLive.FormComponent do
     <div>
       <.header>
       <%= @title %>
-      <%= @deck_id %>
         <:subtitle>Use this form to manage card records in your database.</:subtitle>
       </.header>
 
@@ -22,8 +22,9 @@ defmodule MunaWeb.CardLive.FormComponent do
         phx-submit="save"
       >
         <.input field={{f, :title}} type="text" label="title" />
+        <.input field={{f, :deck_id}} type="text" value={@deck_id} label="title" />
         <:actions>
-          <.button phx-disable-with="Saving...">Save Card</.button>
+           <.button phx-disable-with="Saving...">Save Card</.button>
         </:actions>
       </.simple_form>
     </div>
@@ -68,6 +69,8 @@ defmodule MunaWeb.CardLive.FormComponent do
   end
 
   defp save_card(socket, :new, card_params) do
+    Logger.info("socket is #{inspect(socket)}")
+
     case Study.create_card(card_params) do
       {:ok, _card} ->
         {:noreply,

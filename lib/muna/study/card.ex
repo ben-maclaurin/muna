@@ -5,7 +5,7 @@ defmodule Muna.Study.Card do
 
   schema "cards" do
     field(:title, :string)
-    belongs_to(:decks, Deck)
+    belongs_to(:deck, Deck)
 
     timestamps()
   end
@@ -14,6 +14,6 @@ defmodule Muna.Study.Card do
   def changeset(card, attrs) do
     card
     |> cast(attrs, [:title, :deck_id])
-    |> validate_required([:title])
+    |> validate_required([:title, :deck_id])
   end
 end
