@@ -8,7 +8,7 @@ defmodule MunaWeb.CardLive.FormComponent do
     ~H"""
     <div>
       <.header>
-      <%= @title %>
+        <%= @title %>
         <:subtitle>Use this form to manage card records in your database.</:subtitle>
       </.header>
 
@@ -20,13 +20,13 @@ defmodule MunaWeb.CardLive.FormComponent do
         phx-change="validate"
         phx-submit="save"
       >
-      <.input field={{f, :front}} type="text" label="Front" />
-      <.input field={{f, :back}} type="text" label="Back" />
-      <span class="hidden">
-              <.input field={{f, :deck_id}} type="text" value={@deck_id} />
-      </span>
+        <.input field={{f, :front}} type="text" label="Front" />
+        <.input field={{f, :back}} type="text" label="Back" />
+        <span class="hidden">
+          <.input field={{f, :deck_id}} type="text" value={@deck_id} />
+        </span>
         <:actions>
-           <.button phx-disable-with="Saving...">Save Card</.button>
+          <.button phx-disable-with="Saving...">Save Card</.button>
         </:actions>
       </.simple_form>
     </div>

@@ -45,7 +45,9 @@ defmodule MunaWeb.UserRegistrationLive do
         </:actions>
       </.simple_form>
       <div class="flex flex-col items-center mt-3">
-        <.link id="_test_login_link" class="text-sm" href={~p"/users/log_in"}>Already have an account? Log in</.link>
+        <.link id="_test_login_link" class="text-sm" href={~p"/users/log_in"}>
+          Already have an account? Log in
+        </.link>
       </div>
     </div>
     """
