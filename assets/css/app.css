@@ -3,12 +3,16 @@
 @import "tailwindcss/utilities";
 
 /* This file is for your main application CSS */
-/* @font-face { */
-/*     font-family: 'YourFontName';  */
-/*     src: url('http://domain.example/fonts/font.ttf');  */
-/* } */
+@font-face {
+    font-family: 'Fira Sans';
+    src: url('FiraSans-Regular.ttf');
+}
 
 a {
     /* <(Apply directive)> */
     @apply hover:underline
+}
+
+* {
+    font-family: 'Fira Sans';
 }
